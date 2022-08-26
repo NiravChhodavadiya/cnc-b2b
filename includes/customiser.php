@@ -2,7 +2,7 @@
 add_action("woocommerce_after_add_to_cart_quantity","cnc_b2b_add_personalise_button_product_page",111);
 function cnc_b2b_add_personalise_button_product_page(){
     global $engrave_fonts;
-    if(get_post_meta(get_the_ID(), "cnc_b2b_bigcommerce_product", true) == "1"){
+    if(get_post_meta(get_the_ID(), "cnc_b2b_bigcommerce_product", true) == "1"):
     ?>
     <div class="cnc_b2b_personalise_button">
         <div class="Personalise-btn">
@@ -156,51 +156,53 @@ function cnc_b2b_add_personalise_button_product_page(){
                     </div>
                     <div class="width_50 right" >
                             <?php
-                            if(count($postdata['engrave_fonts']) == 1){
+                            if(count($postdata['engrave_fonts']) == 1):
                                 ?>
                                 <input type="hidden" id="engrave_fonts" name="engrave_fonts"  value="<?php echo $postdata['engrave_fonts'][0]; ?>">
                                 <?php
-                            }
-                            else{
+                             
+                            else:
                             ?>
                             
-                                <div class="width_100" <?php if($postdata['multiple_fonts']==1){ echo 'style="display:none"'; } ?>/>
+                                <div class="width_100" <?php if($postdata['multiple_fonts']==1){ echo 'style="display:none"'; } ?>>
                                     <b>Font Choice</b>
                                 </div>
-                                <div class="width_100" <?php if($postdata['multiple_fonts']==1){ echo 'style="display:none"'; } ?>/>
+                                <div class="width_100" <?php if($postdata['multiple_fonts']==1){ echo 'style="display:none"'; } ?>>
                                     <select name="engrave_fonts" id="engrave_fonts"> 
                                     <?php
                                     if(gettype ($postdata['engrave_fonts'])=='string'){
                                     $postdata['engrave_fonts'] =array( $postdata['engrave_fonts']);
                                 }
                                 $i=0;
-                                foreach($engrave_fonts as $key => $font){
+                                foreach($engrave_fonts as $key => $font):
                                     // echo $key."--->";
                                     // print_r($postdata['engrave_fonts']);
                                     // echo "<br>";
-                                    if(!in_array($key,$postdata['engrave_fonts'])){
+                                    if(!in_array($key,$postdata['engrave_fonts'])):
                                         continue;
-                                    }
-                                    if($postdata['engrave_fonts'][0]=='curlz' && $i==0 && in_array('zapfchancery',$postdata['engrave_fonts'])){
+                                    endif;
+                                    if($postdata['engrave_fonts'][0]=='curlz' && $i==0 && in_array('zapfchancery',$postdata['engrave_fonts'])):
                                         unset($engrave_fonts['$engrave_fonts']);
                                      ?><option class="zapfchancery" value="zapfchancery"  >Zapf Chancery</option><?php      
-                                    }
+                                    endif;
                                     $i++;
                                     ?>
                                     <option class="<?php echo $key; ?>" value="<?php echo $key; ?>"  ><?php echo $font; ?></option>
-                                    <?
-                                }
+                                    <?php
+                                endforeach;
                                 
-                                foreach($engrave_user_fonts as $key => $font){
+                                foreach($engrave_user_fonts as $key => $font):
                                     ?>
                                     <option class="<?php echo $key; ?>" value="<?php echo $key; ?>"  ><?php echo $font; ?></option>
-                                    <?
-                                } ?>
+                                    <?php
+                                endforeach; 
+                                ?>
                                 </select>
                                 </div>
                             <?php
-                            }
+                            endif;
                             ?>
+                            
                             <?php if($postdata['engrave_enable_clip_art']): ?>
                             <div class="width_100">
                                     <b>Clip Art</b>
@@ -221,7 +223,7 @@ function cnc_b2b_add_personalise_button_product_page(){
                             <?php endif; ?>
                             
                             <?php if(!empty($postdata['available_color'])): ?>
-                                <div class="width_100" />
+                                <div class="width_100">
                                     <b>Select Color</b>
                                 </div>
                             <?php endif; ?>
@@ -287,7 +289,7 @@ function cnc_b2b_add_personalise_button_product_page(){
                                     
                                     
                                     
-                                    <div class="width_100 show_hide<?php echo $i; ?>" />    
+                                    <div class="width_100 show_hide<?php echo $i; ?>">    
                                         <input placeholder="Line <?php echo $i  ?>"   class="font_value" data-id="<?php echo $i; ?>" value="<?php  $postdata['sample_text_'.$i]; ?>" maxlength="<?php echo $postdata['max_character_'.$i]; ?>" />
                                     </div>
                                     
@@ -326,7 +328,7 @@ function cnc_b2b_add_personalise_button_product_page(){
         </div> 
     </div>
     <?php
-    }
+    endif;
 }
 
 // ------------------------------------------------------WooCommerce Coustom Data to Cart,Checkout,order------------------------------------------------//
@@ -453,3 +455,4 @@ function cnc_b2b_after_order_create( $order_id ) {
 }   
 
 // ------------------------------------------------------WooCommerce Coustom Data to Cart,Checkout,order------------------------------------------------//
+
