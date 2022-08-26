@@ -11,7 +11,7 @@
  */
 
 include "includes/support_ajax.php";
-include "includes/customiser.php";
+// include "includes/customiser.php";
 include "includes/update_stock.php";
 include "includes/update_status.php";
 include "includes/update_product.php";
@@ -391,4 +391,4 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 $myUpdateChecker->setBranch('main');
 
 //Optional: If you're using a private repository, specify the access token like this:
-$myUpdateChecker->setAuthentication('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');
+$myUpdateChecker->setAuthentication('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');
