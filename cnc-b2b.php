@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Personalised Gift Supply - Listing Tool
  * Description:       Give Support of b2b business with cnc group
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Akshar Soft Solutions
  * Author URI:        http://aksharsoftsolutions.com/
  * License:           GPL v2 or later
@@ -380,16 +380,15 @@ $engrave_fonts = apply_filters(
 );
 ksort($engrave_fonts);
 
-
 require __DIR__ . '/cnc-plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/cnc-group-it/cnc-b2b',
+    'https://github.com/NiravChhodavadiya/cnc-b2b',
     __FILE__,
     'cnc-b2b'
 );
 
 //Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('master');
+$myUpdateChecker->setBranch('main');
 
 //Optional: If you're using a private repository, specify the access token like this:
-//$myUpdateChecker->setAuthentication('sdfsdfsdf');
+$myUpdateChecker->setAuthentication('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');
